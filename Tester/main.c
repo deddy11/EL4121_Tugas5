@@ -22,10 +22,10 @@ void test_fsm(char *filename) {
     char buffer[1024];
     FILE *f;
     f = fopen(filename, "r");
-	// parameter untuk FSM
-	int input = 0; 
-	int state = 0;
-	int led;
+    // parameter untuk FSM
+    int input = 0; 
+    int state = 0;
+    int led;
     int counter = 0;
             
     for (; !feof(f);) {
@@ -37,17 +37,17 @@ void test_fsm(char *filename) {
 
             sscanf(buffer, "%d,%d", &kolom1, &kolom2);
             {
-				input = kolom1;
-				fsm(input, &state, &led, &counter);
-				baris_counter++;
-				
-				printf("baris %3d %d %d %d", baris_counter, kolom1, kolom2, led);
-				if (led != kolom2) {
-					printf(" error");
-					jumlah_error++;
-				}
-				printf("\n");
-			}               
+		input = kolom1;
+		fsm(input, &state, &led, &counter);
+		baris_counter++;
+
+		printf("baris %3d %d %d %d", baris_counter, kolom1, kolom2, led);
+		if (led != kolom2) {
+			printf(" error");
+			jumlah_error++;
+		}
+		printf("\n");
+	    }               
         }
     }
     printf("jumlah error:%d\n",jumlah_error);   // seharusnya jumlah error adalah 0
