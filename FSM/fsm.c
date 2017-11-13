@@ -3,7 +3,7 @@
 #include "fsm.h"
 
 // file ini berisi FSM yang akan diuji
-// frekuensi FSM 10 Hz
+// frekuensi FSM 1000 Hz
 
 /**
  * FSM under test
@@ -41,7 +41,7 @@ void fsm(int input, int *state, int *output, int *counter) {
       }
       else {
         *counter += 1;
-        if(*counter >= 10) {
+        if(*counter >= 1000) {
           *state = OFF_STABLE;
           *counter = 0;
         }
@@ -61,7 +61,7 @@ void fsm(int input, int *state, int *output, int *counter) {
       }
     else {
     *counter += 1;
-    if(*counter >= 50) {
+    if(*counter >= 5000) {
       *state = OFF_STABLE;
       *counter = 0;
     }  
