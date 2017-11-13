@@ -19,7 +19,7 @@ ISR(TIMER1_OVF_vect) {  // interrupt membaca input
   fsm(input, &state, &output, &counter);
   
   TIFR1  = (1 << TOV1);
-  TCNT1  = 65519;
+  TCNT1  = 65519;	//interrupt 1ms
 }
 
 void setup() {  // put your setup code here, to run once:
@@ -54,7 +54,7 @@ void init_int(void) {
 
   TCCR1A = 0;
   TCCR1B = 0b00001101; //prescalar 1024
-  TCNT1  = 65519;
+  TCNT1  = 65519;	//interrupt 1ms
 
   sei();
 }
